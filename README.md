@@ -7,9 +7,9 @@ Scrolling 2D environment where you move the badger up or down to avoid obstacles
 
 # Wireframe
 
-![](images/wireframe-1.JPG)
+![High level wireframe](images/wireframe-1.JPG)
 
-![](images/wireframe-2.JPG)
+![In-game wireframe](images/wireframe-2.JPG)
 
 # MVP
 * Render game start button
