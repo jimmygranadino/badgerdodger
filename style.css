@@ -28,9 +28,6 @@ canvas {
 #game {
   opacity: 100%;
 }
-#pitfall-sprite {
-  opacity: 1%;
-}
 
 #container {
   max-width: 65em;
