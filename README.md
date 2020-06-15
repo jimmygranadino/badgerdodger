@@ -1,6 +1,6 @@
 # Badger Dodger
 
-You're a hungry badger in the Savannah and cookies have spontaneously began sprouting up from the ground! Avoid lions and pitfalls to acquire 3 cookies and fill that belly up before night falls.
+You're a hungry badger in the Savannah and cookies have spontaneously began sprouting up from the ground! Avoid lions and hawks to acquire 3 cookies to fill that belly up before night falls.
 
 # Gameplay
 Scrolling 2D environment where you move the badger up or down to avoid obstacles and reach the ultimate goal of acquiring all cookies in the game field. Use "W" key to move the badger up and the "S" key to move the badger down. Once timer hits zero, the game is lost.
