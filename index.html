@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
     <title>BADGER DODGER</title>
 </head>
 <body>
-    <div class="container">
-        <div id="game-partition">
-            <canvas id="game-environment"></canvas>
-        </div>
+    <div id="container">
+        <aside id="top-title"><h1>BADGER DODGER <img id="badger-sprite" src="images/badger-sprite.png" /><img id="grass" src="images/grass.png" /><img id="cookie-sprite" src="images/cookie-sprite.png" /><img id="lion-sprite" src="images/lion-sprite.png" /><img id="bird-sprite" src="images/bird.png" /></h1></aside>
+        <aside id="top-newGame"><button id="startButton">START GAME</button></aside>
+        <main>
+            <canvas id="game">
+                Badger dodging obstacles to acquire cookies. Enable javascript to play game.
+            </canvas>
+        </main>
+        <aside id="bottom-left"><h1 id="health">HEALTH: 3</h1></aside>
+        <aside id="bottom-middle"><h2 id="visibleTimer">00:00</h2></aside>
+        <aside id="bottom-right"><h1 id="cookies">COOKIES: 0</h1></aside>
     </div>
+    <div id="instructions"><p>Stoffle the badger is hungry! <br> Avoid the lions and collect 3 cookies to get Stoffle into a food coma. <br>Click the "START GAME" button and use the W & S keys to move up or down.</p></div>
+      <script src="app.js"></script>
 </body>
 </html>

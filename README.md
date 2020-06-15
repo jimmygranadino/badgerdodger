@@ -20,25 +20,22 @@ Scrolling 2D environment where you move the badger up or down to avoid obstacles
     2. Use W & S for up/down movement
 * Render collision objects
     1. Lions
-    2. Pitfalls
-    3. Cookies
+    2. Cookies
 * Render grass sprite
 * Render health bar
     1. Set health bar to 3 "damage points"
         * Lions cause 1 damage point
-        * Pitfalls cause 3 damage points
     2. Set lose game condition when health reaches 0
 * Render timer
-    1. Set timer to 60 seconds and decrement
-        * Every 15 seconds change game window opacity until pitch black to indicate shifting day light
-    2. When timer reaches 0, set opacity of game window to 0% to indicate night time and lost game scenario
-        * innerText message of night fall/game over
+    1. Set timer to 30 seconds and decrement
 * Track number of cookies acquired
     1. Set win game condition when 3 cookies acquired
         * innerText message of belly full/game won
 * Continuously scroll game background so new collision objects appear
 
 # Stretch Goals
+* Every 10 seconds change game window opacity until pitch black to indicate shifting day light
+    1. innerText message of night fall/game over
 * Include spacebar for jumping
     1. Differentiate up movement vs. jump movement so game logic doesn't get confused
         * Pitfalls are jumpable
@@ -46,10 +43,12 @@ Scrolling 2D environment where you move the badger up or down to avoid obstacles
             * innerText message of caught in air/game over
         * Jumping a cookie doesn't get acquired
         * Movement on screen to indicate a jump has occurred 
-* Insert new collision object after 30 seconds
+* Insert new collision object after 15 seconds
     1. Hawk sprites that dart across the screen at an angle/diagonally 
-    2. Hawk collision causes 2 damage points
-    3. Randomize where a hawk will dart across the screen
+        * Hawk collision causes 2 damage points
+        * Randomize where a hawk will dart across the screen
+    2. Pitfalls
+        * Falling into a pit causes 3 damage points
 * Repeating movement of lion within a specified direction
 * Fade to a dark cave background image when pitfall lose condition triggered
 * Include attack for badger
