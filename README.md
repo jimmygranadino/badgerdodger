@@ -12,30 +12,30 @@ Scrolling 2D environment where you move the badger up or down to avoid obstacles
 ![In-game wireframe](images/wireframe-2.JPG)
 
 # MVP
-* Render game start button
-* Render game window
-* Render savannah background
-* Render player
-    1. Use badger sprite
-    2. Use W & S for up/down movement
-* Render collision objects
-    1. Lions
-    2. Cookies
-* Render grass sprite
-* Render health bar
-    1. Set health bar to 3 "damage points"
-        * Lions cause 1 damage point
-    2. Set lose game condition when health reaches 0
-* Render timer
-    1. Set timer to 30 seconds and decrement
-* Track number of cookies acquired
-    1. Set win game condition when 3 cookies acquired
-        * innerText message of belly full/game won
-* Continuously scroll game background so new collision objects appear
+* Render game start button - **Completed**
+* Render game window - **Completed**
+* Render savannah background - **Completed**
+* Render player - **Completed**
+    1. Use badger sprite - **Completed**
+    2. Use W & S for up/down movement - **Completed**
+* Render collision objects - **Completed**
+    1. Lions - **Completed**
+    2. Cookies - **Completed**
+* Render grass sprite - **Completed**
+* Render health bar - **Completed**
+    1. Set health bar to 3 "damage points" - **Completed**
+        * Lions cause 1 damage point - **Completed**
+    2. Set lose game condition when health reaches 0 - **Completed**
+* Render timer - **Completed**
+    1. Set timer to 30 seconds and decrement - **Completed**
+* Track number of cookies acquired - **Completed**
+    1. Set win game condition when 3 cookies acquired - **Completed**
+        * innerText message of belly full/game won - **Completed**
+* Continuously scroll game background so new collision objects appear - **Completed**
 
 # Stretch Goals
-* Every 10 seconds change game window opacity until pitch black to indicate shifting day light
-    1. innerText message of night fall/game over
+* Every 10 seconds change game window opacity until pitch black to indicate shifting day light - **Completed**
+    1. innerText message of night fall/game over - **Completed**
 * Include spacebar for jumping
     1. Differentiate up movement vs. jump movement so game logic doesn't get confused
         * Pitfalls are jumpable
@@ -43,8 +43,8 @@ Scrolling 2D environment where you move the badger up or down to avoid obstacles
             * innerText message of caught in air/game over
         * Jumping a cookie doesn't get acquired
         * Movement on screen to indicate a jump has occurred 
-* Insert new collision object after 15 seconds
-    1. Hawk sprites that dart across the screen at an angle/diagonally 
+* Insert new collision object  - **Completed**
+    1. Hawk sprites that dart across the screen at an angle/diagonally  - **Completed**
         * Hawk collision causes 2 damage points
         * Randomize where a hawk will dart across the screen
     2. Pitfalls
@@ -65,4 +65,3 @@ Scrolling 2D environment where you move the badger up or down to avoid obstacles
 * HTML
 * CSS
 * JavaScript
-* Additional items here
