@@ -37,52 +37,7 @@ var collisionDetected = false
 
  // all locations of grass in game environment used when function calls to draw them
 var grass = [
-    [750, 150],
-    [200, 100],
-    [300, 40],
-    [350, 300],
-    [500, 350],
-    [700, 200],
-    [850, 150],
-    [800, 100],
-    [900, 40],
-    [950, 300],
-    [1000, 350],
-    [1050, 150],
-    [1100, 100],
-    [1230, 40],
-    [1230, 200],
-    [1150, 300],
-    [1300, 350],
-    [1450, 330],
-    [1500, 200],
-    [1600, 80],
-    [1675, 220],
-    [1820, 150],
-    [1890, 150],
-    [1800, 380],
-    [1900, 40],
-    [1950, 100],
-    [2000, 200],
-    [2120, 100],
-    [2250, 300],
-    [2300, 250],
-    [2450, 200],
-    [2500,30],
-    [2500, 390],
-    [2530, 100],
-    [2590, 210],
-    [2630, 350],
-    [2700, 10],
-    [2730, 100],
-    [2830, 200],
-    [2900, 390],
-    [2930, 100],
-    [3000, 210],
-    [3030, 350],
-    [3100, 10],
-    [3230, 100],
-    [3280, 200]
+    [750, 150],[200, 100], [300, 40], [350, 300], [500, 350],[700, 200],[850, 150],[800, 100],[900, 40],[950, 300],[1000, 350],[1050, 150],[1100, 100],[1230, 40],[1230, 200],[1150, 300],[1300, 350],[1450, 330],[1500, 200],[1600, 80],[1675, 220],[1820, 150],[1890, 150],[1800, 380],[1900, 40],[1950, 100],[2000, 200],[2120, 100],[2250, 300],[2300, 250],[2450, 200],[2500,30],[2500, 390],[2530, 100],[2590, 210],[2630, 350],[2700, 10],[2730, 100],[2830, 200],[2900, 390],[2930, 100],[3000, 210],[3030, 350],[3100, 10],[3230, 100],[3280, 200]
 ]
 
 // i wrapped all the code below so the game is initialized when the start game button is clicked
@@ -174,6 +129,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
     let gameLoop = setInterval(gameTick, 16)
 
     // detect hit for each lion & cookie object and adjust tally for health or cookies, ignored DRY to get my collisions working sorry!!
+    // refactor when possible using array that actually detects collisions
     const detectHit = () => {
         // AABB collision detection
         if (badger.x + badger.width > lion01.x
@@ -382,7 +338,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
                     visibleTimer.innerText = goodMsg
                     cookie01.width = 0
                     cookie01.height = 0
-                } else if (collectedCookies === 3) {
+                } if (collectedCookies === 3) {
                     gameWon()
                     timerEnds()
                 }
@@ -397,7 +353,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
                     visibleTimer.innerText = goodMsg
                     cookie02.width = 0
                     cookie02.height = 0
-                } else if (collectedCookies === 3) {
+                } if (collectedCookies === 3) {
                     gameWon()
                     timerEnds()
                 }
@@ -412,7 +368,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
                     visibleTimer.innerText = goodMsg
                     cookie03.width = 0
                     cookie03.height = 0
-                } else if (collectedCookies === 3) {
+                } if (collectedCookies === 3) {
                     gameWon()
                     timerEnds()
                 }
@@ -427,7 +383,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
                     visibleTimer.innerText = goodMsg
                     cookie04.width = 0
                     cookie04.height = 0
-                } else if (collectedCookies === 3) {
+                } if (collectedCookies === 3) {
                     gameWon()
                     timerEnds()
                 }
@@ -471,10 +427,11 @@ document.getElementById("startButton").addEventListener("click", function newGam
     // set auto scrolling
     var scrollInterval = setInterval(autoScroll, 150)
 
+    var yoshiVariable
     // decrement timer and if timer runs all the way down to zero then game over
     function startTimer(duration, display) {
         let gameTimer = duration, seconds
-        setInterval(function () {
+        yoshiVariable = setInterval(function () {
             seconds = parseInt(gameTimer % 60, 10)
             if (gameTimer-- > -1) { // decrement game timer as long as greater than 0 and display stored time
                 display.textContent = "00:" + seconds
@@ -488,7 +445,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
                     }
                 }
             } else { // once game timer runs down to zero, game over
-                gameTimer = display.textContent = "NIGHT HAS FALLEN. GAME OVER!"
+                display.textContent = "NIGHT HAS FALLEN. GAME OVER!"
                 document.getElementById("visibleTimer").style.color = "#ff0000"
                 timerEnds()
             }
@@ -500,7 +457,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
     // set timer to 30 seconds and display to player
     function startNewGame() {
         let thirtySeconds = 30
-        display = document.getElementById("visibleTimer")
+        let display = document.getElementById("visibleTimer")
         startTimer(thirtySeconds, display)
     }
 
@@ -525,29 +482,30 @@ document.getElementById("startButton").addEventListener("click", function newGam
     }
 
     // event listener for key strokes
-    document.addEventListener("keydown", movementHandler)
+    document.addEventListener("keydown", movementHandler, false)
 
 
     // when timer runs end the stored interval
     function timerEnds() {
         clearInterval(scrollInterval)
+        clearInterval(gameLoop)
+        clearInterval(yoshiVariable)
     }
 
     // when health bar runs down to zero, badger faints for game over and I turn off 
     function badgerFainted() {
-        if(totalHealth <= 0) {
             badger.alive = false
-            gameTimer = display.textContent = "BADGER FAINTED! GAME OVER."
+            document.getElementById("visibleTimer").textContent = "BADGER FAINTED! GAME OVER."
             document.getElementById("game").style.opacity = "0.01"
             document.getElementById("visibleTimer").style.color = "#ff0000"
             document.removeEventListener("keydown", movementHandler, false)
-        }
     }
 
     // when badger is still alive and 3 cookies have been collected, game has been won
     function gameWon() {
-        if(collectedCookies === 3 && badger.alive === true) {
-            gameTimer = display.textContent = "BADGER FULL! YOU WIN!"
+        console.log(collectedCookies)
+        if(collectedCookies === 3 && badger.alive) { // badger.alive is alive if not false
+            document.getElementById("visibleTimer").textContent = "BADGER FULL! YOU WIN!"
             document.getElementById("game").style.opacity = "0.01"
             document.getElementById("visibleTimer").style.color = "#00ff00"
             document.getElementById("instructions").innerText = ""
