@@ -65,3 +65,11 @@ Scrolling 2D environment where you move the badger up or down to avoid obstacles
 * HTML
 * CSS
 * JavaScript
+
+# Sources
+**Using drawImage() in JS** - https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+**Understanding the <aside> tag** - https://www.w3schools.com/tags/tag_aside.asp
+**Understanding the 'new' operator** - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
+**Using the continue statement in JS** (not implemented currently, but still want to use) - https://www.w3schools.com/jsref/jsref_continue.asp
+**Understanding collision detection in JS (AABB)** - https://medium.com/@hemalatha.psna/collision-detection-in-javascript-efafe8bba2c0
+**Helped resolve a NaN bug I ran into** - https://stackoverflow.com/questions/30140947/why-does-my-value-keep-returning-as-nan

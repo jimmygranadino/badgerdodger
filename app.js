@@ -101,6 +101,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
         ctx.clearRect(0, 0, game.width, game.height)
         if (badger.alive = true) {
             detectHit()
+            detectGrass()
         }
         draw()
         badger.render()
@@ -127,6 +128,18 @@ document.getElementById("startButton").addEventListener("click", function newGam
 
     // feed this into gametick ala canvas crawler
     let gameLoop = setInterval(gameTick, 16)
+
+    const detectGrass = () => {
+        var g = grass.length;
+        for (var i = 0; i < g; i++) {
+            if (badger.x + badger.width > grass[i].x
+                && badger.x < grass[i].x + grass[i].width
+                && badger.y < grass[i].y + grass[i].height
+                && badger.y + badger.height > grass[i].y) {
+                    console.log("in the grass")
+                }
+            }
+    }
 
     // detect hit for each lion & cookie object and adjust tally for health or cookies, ignored DRY to get my collisions working sorry!!
     // refactor when possible using array that actually detects collisions
@@ -426,7 +439,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
 
     // set auto scrolling
     var scrollInterval = setInterval(autoScroll, 150)
-
+    // use a variable to store the setInterval below so it can be cleared later for debugging
     var yoshiVariable
     // decrement timer and if timer runs all the way down to zero then game over
     function startTimer(duration, display) {
@@ -489,7 +502,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
     function timerEnds() {
         clearInterval(scrollInterval)
         clearInterval(gameLoop)
-        clearInterval(yoshiVariable)
+        clearInterval(yoshiVariable) // did this during TA hours to figure out why reaching 3 cookies sometimes didn't end the game
     }
 
     // when health bar runs down to zero, badger faints for game over and I turn off 
