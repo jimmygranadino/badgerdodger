@@ -497,7 +497,6 @@ document.getElementById("startButton").addEventListener("click", function newGam
     // event listener for key strokes
     document.addEventListener("keydown", movementHandler, false)
 
-
     // when timer runs end the stored interval
     function timerEnds() {
         clearInterval(scrollInterval)
@@ -527,5 +526,11 @@ document.getElementById("startButton").addEventListener("click", function newGam
         }
     }
 
+    function refreshButton () {
+        if(badger.alive === false || collectedCookies === 3) {
+            document.getElementById("startButton").innerHTML.onclick=window.location.reload()
+        }
+    }
 
+    refreshButton()
 })
