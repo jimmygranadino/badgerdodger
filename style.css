@@ -22,7 +22,7 @@ canvas {
 #instructions {
   margin: 0 auto;
   width: 60%;
-  height: 260px;
+  font-size: 20px;
 }
 
 #game {
@@ -30,7 +30,7 @@ canvas {
 }
 
 #container {
-  max-width: 65em;
+  max-width: 60%;
   background-color: #ffffff;
   margin: 0 auto;
   padding: 0.3em;

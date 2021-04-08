@@ -18,24 +18,24 @@ let gameOver = true
 
 /* --- game logic for tallying cookies and damage --- */
 var totalHealth = 3
-var collectedCookies = 0
+var collectedCookies = 0 
 var collisionDetected = false
 
 /* ---- Draw on Canvas here --- */
- let ctx=game.getContext("2d")
- game.width = 800
- game.height = 400
+let ctx=game.getContext("2d")
+game.width = 800
+game.height = 400
  // offset of canvas
- var offsetX = 0
- var offsetY = 0
- var badgerX = 10
- var badgerY = 200
- var badgerWidth = 20
- var badgerHeight = 20
- var badMsg = "BADGER HURT!"
- var goodMsg = "COOKIE COLLECTED!"
+var offsetX = 0
+var offsetY = 0
+var badgerX = 10
+var badgerY = 200
+var badgerWidth = 20
+var badgerHeight = 20
+var badMsg = "BADGER HURT!"
+var goodMsg = "COOKIE COLLECTED!"
 
- // all locations of grass in game environment used when function calls to draw them
+ // all locations of grass in game environment used when function calls to draw them ------ turn this array into an array of objects using render
 var grass = [
     [750, 150],[200, 100], [300, 40], [350, 300], [500, 350],[700, 200],[850, 150],[800, 100],[900, 40],[950, 300],[1000, 350],[1050, 150],[1100, 100],[1230, 40],[1230, 200],[1150, 300],[1300, 350],[1450, 330],[1500, 200],[1600, 80],[1675, 220],[1820, 150],[1890, 150],[1800, 380],[1900, 40],[1950, 100],[2000, 200],[2120, 100],[2250, 300],[2300, 250],[2450, 200],[2500,30],[2500, 390],[2530, 100],[2590, 210],[2630, 350],[2700, 10],[2730, 100],[2830, 200],[2900, 390],[2930, 100],[3000, 210],[3030, 350],[3100, 10],[3230, 100],[3280, 200]
 ]
@@ -60,7 +60,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
 
     /* -- game objects --- */
     // constructor function
-    function Object(image, x, y, width, height) {
+    function gameObject(image, x, y, width, height) {
         this.image = image
         this.x = x
         this.y = y
@@ -74,26 +74,26 @@ document.getElementById("startButton").addEventListener("click", function newGam
     }
 
     // traits of each object populating game foreground
-    let badger = new Object(badgerSprite, 10, 200, 30, 30)
-    let lion01 = new Object(lionSprite, 550, 30, 55, 55)
-    let lion02 = new Object(lionSprite, 820, 300, 55, 55)
-    let lion03 = new Object(lionSprite, 900, 200, 55, 55)
-    let lion04 = new Object(lionSprite, 1180, 100, 55, 55)
-    let lion05 = new Object(lionSprite, 1230, 250, 55, 55)
-    let lion06 = new Object(lionSprite, 1400, 100, 55, 55)
-    let lion07 = new Object(lionSprite, 1560, 150, 55, 55)
-    let lion08 = new Object(lionSprite, 1650, 350, 55, 55)
-    let lion09 = new Object(lionSprite, 1720, 200, 55, 55)
-    let lion10 = new Object(lionSprite, 2050, 100, 55, 55)
-    let lion11 = new Object(lionSprite, 2000, 285, 55, 55)
-    let lion12 = new Object(lionSprite, 2300, 310, 55, 55)
-    let cookie01 = new Object(cookieSprite, 775, 45, 15, 15)
-    let cookie02 = new Object(cookieSprite, 1275, 345, 15, 15)
-    let cookie03 = new Object(cookieSprite, 1775, 145, 15, 15)
-    let cookie04 = new Object(cookieSprite, 2475, 345, 15, 15)
-    let bird01 = new Object(birdSprite, 900, -230, 25, 25)
-    let bird02 = new Object(birdSprite, 1210, -450, 25, 25)
-    let bird03 = new Object(birdSprite, 1810, -1200, 25, 25)
+    let badger = new gameObject(badgerSprite, 10, 200, 30, 30)
+    let lion01 = new gameObject(lionSprite, 550, 30, 55, 55)
+    let lion02 = new gameObject(lionSprite, 820, 300, 55, 55)
+    let lion03 = new gameObject(lionSprite, 900, 200, 55, 55)
+    let lion04 = new gameObject(lionSprite, 1180, 100, 55, 55)
+    let lion05 = new gameObject(lionSprite, 1230, 250, 55, 55)
+    let lion06 = new gameObject(lionSprite, 1400, 100, 55, 55)
+    let lion07 = new gameObject(lionSprite, 1560, 150, 55, 55)
+    let lion08 = new gameObject(lionSprite, 1650, 350, 55, 55)
+    let lion09 = new gameObject(lionSprite, 1720, 200, 55, 55)
+    let lion10 = new gameObject(lionSprite, 2050, 100, 55, 55)
+    let lion11 = new gameObject(lionSprite, 2000, 285, 55, 55)
+    let lion12 = new gameObject(lionSprite, 2300, 310, 55, 55)
+    let cookie01 = new gameObject(cookieSprite, 775, 45, 15, 15)
+    let cookie02 = new gameObject(cookieSprite, 1275, 345, 15, 15)
+    let cookie03 = new gameObject(cookieSprite, 1775, 145, 15, 15)
+    let cookie04 = new gameObject(cookieSprite, 2475, 345, 15, 15)
+    let bird01 = new gameObject(birdSprite, 900, -230, 25, 25)
+    let bird02 = new gameObject(birdSprite, 1210, -450, 25, 25)
+    let bird03 = new gameObject(birdSprite, 1810, -1200, 25, 25)
 
     // refresh the screen using interval
     const gameTick = () => {
@@ -101,7 +101,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
         ctx.clearRect(0, 0, game.width, game.height)
         if (badger.alive = true) {
             detectHit()
-            detectGrass()
+            //detectGrass()
         }
         draw()
         badger.render()
@@ -129,17 +129,17 @@ document.getElementById("startButton").addEventListener("click", function newGam
     // feed this into gametick ala canvas crawler
     let gameLoop = setInterval(gameTick, 16)
 
-    const detectGrass = () => {
-        var g = grass.length;
-        for (var i = 0; i < g; i++) {
-            if (badger.x + badger.width > grass[i].x
-                && badger.x < grass[i].x + grass[i].width
-                && badger.y < grass[i].y + grass[i].height
-                && badger.y + badger.height > grass[i].y) {
-                    console.log("in the grass")
-                }
-            }
-    }
+    // const detectGrass = () => {
+    //     var g = grass.length;
+    //     for (var i = 0; i < g; i++) {
+    //         if (badger.x + badger.width > grass[i][0]
+    //             && badger.x < grass[i][0] + 40
+    //             && badger.y < grass[i][1] + 40
+    //             && badger.y + badger.height > grass[i][1]) {
+    //                 console.log("in the grass")
+    //             }
+    //         }
+    // }
 
     // detect hit for each lion & cookie object and adjust tally for health or cookies, ignored DRY to get my collisions working sorry!!
     // refactor when possible using array that actually detects collisions
@@ -508,6 +508,7 @@ document.getElementById("startButton").addEventListener("click", function newGam
     function badgerFainted() {
             badger.alive = false
             document.getElementById("visibleTimer").textContent = "BADGER FAINTED! GAME OVER."
+            document.getElementById("startButton").innerText="RESTART"
             document.getElementById("game").style.opacity = "0.01"
             document.getElementById("visibleTimer").style.color = "#ff0000"
             document.removeEventListener("keydown", movementHandler, false)
@@ -520,17 +521,17 @@ document.getElementById("startButton").addEventListener("click", function newGam
             document.getElementById("visibleTimer").textContent = "BADGER FULL! YOU WIN!"
             document.getElementById("game").style.opacity = "0.01"
             document.getElementById("visibleTimer").style.color = "#00ff00"
-            document.getElementById("instructions").innerText = ""
-            document.getElementById("instructions").style.backgroundImage = "url(images/stoffle-wins.gif)"
+            document.getElementById("startButton").innerText="RESTART"
             document.removeEventListener("keydown", movementHandler, false)
         }
     }
 
     function refreshButton () {
-        if(badger.alive === false || collectedCookies === 3) {
-            document.getElementById("startButton").innerHTML.onclick=window.location.reload()
+        if(totalHealth === 0 || collectedCookies === 3) {
+            document.getElementById("startButton").onClick=window.location.reload()
         }
     }
-
+    
     refreshButton()
 })
+
