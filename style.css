@@ -59,13 +59,18 @@ canvas {
 }
 
 #startButton {
-  color: #ffffff;
+  color: #222222;
   font-size: 24px;
+  font-weight: 900;
   height: 80px;
   width: 150px;
-  background-color: #333333;
+  background-color: #ffd500;
 }
-    
+
+mark {
+  background-color: #ffd500;
+}
+
 main {
   grid-area: game;
 }
